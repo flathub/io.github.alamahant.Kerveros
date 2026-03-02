@@ -9,8 +9,15 @@ finish-args:
   - --socket=fallback-x11
   - --socket=wayland
   - --device=dri
-#  - --filesystem=xdg-documents/Kerveros:create
-  - --filesystem=home # Required: user can now relocate encrypted database to cloud-synced folders inside $HOME
+  - --filesystem=xdg-documents/Kerveros:create
+  - --filesystem=home/Nextcloud
+  - --filesystem=home/OneDrive
+  - --filesystem=home/Dropbox
+  - --filesystem=home/Google\ Drive   
+  - --filesystem=home/MEGA
+  - --filesystem=home/pCloud\ Drive    
+  - --filesystem=home/Tresorit
+
 modules:
   - name: Kerveros
     buildsystem: cmake-ninja
@@ -33,7 +40,7 @@ modules:
       - type: git
         url: https://github.com/alamahant/Kerveros.git
         tag: v1.0.1
-        commit: b7d7ecdd2ae8a6537dc92facd82662bfbac56c5a
+        commit: 33b13f999b1a170de49853169dbe1caf2fcdb0ae
     cleanup:
       - /include
       - /lib/*.a
