@@ -40,7 +40,7 @@ modules:
       - type: git
         url: https://github.com/alamahant/Kerveros.git
         tag: v1.0.1
-        commit: 33b13f999b1a170de49853169dbe1caf2fcdb0ae
+        commit: c3bacab0d8a90b740a0fd91b88ada1f0dbc679cc
     cleanup:
       - /include
       - /lib/*.a
