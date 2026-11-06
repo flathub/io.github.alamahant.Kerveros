@@ -1,10 +1,18 @@
-# 📝 Kerveros Changelog
+# Kerveros Changelog
 
-## **Version 1.0.1 — Released March 2, 2026**
+## **Version 1.0.2 — Released November 6, 2026**
+
+### Changed
+- **Export**: Existing backup is now rotated to `.conf.bak.old` before a new one is written, so the previous export is preserved instead of the export failing when the file already exists
+- **Export**: `exportAccounts()` now returns success or failure, so callers can react to the outcome
+- **Factory Reset**: A backup is now taken automatically before the settings file is deleted, and the reset aborts if that backup fails — no more wiping data with no recovery point
+- **Factory Reset**: Confirmation and completion messages now mention where the backup was saved
 
 ---
 
-## 🔐 Security Improvements
+## **Version 1.0.1 — Released March 2, 2026**
+
+## Security Improvements
 
 - **Metadata Encryption Added:**  
   All account metadata is now encrypted when master password protection is enabled, including:
@@ -21,7 +29,7 @@
 
 ---
 
-## ☁️ Cloud Database Support
+## Cloud Database Support
 
 - **Move Database to Cloud Feature:**  
   Users can now relocate the configuration database to a cloud-synced directory safely using symbolic links.
@@ -37,7 +45,7 @@
 
 ---
 
-## 🛡️ Data Safety Enhancements
+## Data Safety Enhancements
 
 - **Automatic Backup Creation:**  
   Existing files are backed up before replacing or relinking configuration databases.
@@ -50,7 +58,7 @@
 
 ---
 
-## 🧠 Application Behavior Improvements
+## Application Behavior Improvements
 
 - **Automatic Reload After Database Change:**  
   Accounts and codes refresh immediately after switching database locations without restarting the application.
@@ -60,7 +68,7 @@
 
 ---
 
-## 🛠️ Internal Changes
+## Internal Changes
 
 - Refactored save/load logic to support encrypted metadata transparently.
 - Reduced duplicated encryption logic across the codebase.
@@ -69,21 +77,18 @@
 
 ---
 
-**Kerveros 1.0.1**  
-Enhances privacy, enables secure cloud synchronization, and improves database portability while preserving the lightweight architecture of the original release.
 
----
 
 **Version 1.0.0 - Released November 15, 2025**
 
 ---
 
-## 🎉 Initial Release
+## Initial Release
 First stable release of Kerveros - A secure 2FA code generator with master password protection.
 
 ---
 
-## ✨ New Features
+## New Features
 - **TOTP Code Generation:** Complete implementation of time-based one-time password algorithm with 30-second intervals.
 - **Multi-Account Support:** Manage unlimited 2FA accounts for services like GitHub, Google, PayPal, etc.
 - **Master Password Protection:** Optional password protection with SHA-256 hashing and salting.
@@ -96,7 +101,7 @@ First stable release of Kerveros - A secure 2FA code generator with master passw
 
 ---
 
-## 🎨 User Interface
+## User Interface
 - **Clean Splitter Layout:** Resizable interface separating accounts list from code display.
 - **Visual Countdown Timer:** Color-coded progress bar (green/yellow/red) showing time remaining.
 - **One-Click Copy:** Instant code copying with visual feedback and auto-revert.
@@ -105,7 +110,7 @@ First stable release of Kerveros - A secure 2FA code generator with master passw
 
 ---
 
-## 🔒 Security Enhancements
+## Security Enhancements
 - **Password Attempt Limiting:** 5 attempts before factory reset option.
 - **Automatic Encryption Migration:** Seamless transition when enabling password protection.
 - **Factory Reset:** Complete data sanitization by deleting configuration file.
@@ -114,7 +119,7 @@ First stable release of Kerveros - A secure 2FA code generator with master passw
 
 ---
 
-## 🛠️ Technical Foundation
+## Technical Foundation
 - **Qt Framework:** Built with Qt 6 for robust cross-platform performance.
 - **Modular Architecture:** Separated `SecurityManager` and `TwoFAManager` classes.
 - **Signal/Slot Communication:** Clean component interaction patterns.
@@ -123,7 +128,7 @@ First stable release of Kerveros - A secure 2FA code generator with master passw
 
 ---
 
-## 📋 System Requirements
+## System Requirements
 - **Operating Systems:** Linux, Windows 10+, macOS 10.14+
 - **Dependencies:** zbar-tools (for QR code scanning on Linux)
 - **Storage:** Minimal disk space required for configuration files.
